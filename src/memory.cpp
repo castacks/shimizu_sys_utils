@@ -89,7 +89,12 @@ std::string MemoryMonitor::string() const {
     return ss.str();
 }
 
-std::ostream& shimizu::operator << (std::ostream& os, const MemoryMonitor& mm) {
+namespace shimizu
+{
+
+std::ostream& operator << (std::ostream& os, const MemoryMonitor& mm) {
     os << mm.string();
     return os;
 }
+
+} // namespace shimizu
