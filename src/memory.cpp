@@ -55,6 +55,16 @@ MemoryMonitor& MemoryMonitor::update() {
     return *this;
 }
 
+MemoryMonitor& MemoryMonitor::operator = ( const MemoryMonitor& other ) {
+    if ( &other == this ) return *this;
+
+    this->human_readable = other.human_readable;
+    this->_peak_rss      = other._peak_rss; // KB, VmHWM.
+    this->_rss           = other._rss; // KB, VmRSS.
+
+    return *this;
+}
+
 std::pair<double, std::string> 
 MemoryMonitor::convert_2_human_readable( long original ) const {
     auto value = static_cast<double>( original ); // KB;

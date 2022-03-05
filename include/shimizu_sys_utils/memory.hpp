@@ -40,6 +40,8 @@ public:
 
     std::string string() const;
 
+    MemoryMonitor& operator = ( const MemoryMonitor& other );
+
     friend std::ostream& operator << (std::ostream& os, const MemoryMonitor& mm);
 
 private:
